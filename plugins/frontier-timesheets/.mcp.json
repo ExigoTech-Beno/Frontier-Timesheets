@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "frontier-timesheets": {
+      "command": "node",
+      "args": ["./dist/index.js"],
+      "tools": ["*"]
+    }
+  }
+}

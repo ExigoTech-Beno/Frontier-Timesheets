@@ -1,0 +1,27 @@
+{
+  "name": "frontier-timesheets-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Frontier Timesheets — connects GitHub Copilot to D365 Project Operations via the Dataverse Web API.",
+  "main": "dist/index.js",
+  "bin": {
+    "frontier-timesheets-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@azure/msal-node": "^2.16.2",
+    "@modelcontextprotocol/sdk": "^1.10.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

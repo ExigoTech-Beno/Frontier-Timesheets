@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    {
+      "name": "frontier-timesheets",
+      "path": "plugins/frontier-timesheets",
+      "description": "Draft and submit D365 Project Operations time entries powered by your Microsoft 365 activity."
+    }
+  ]
+}
