@@ -53,7 +53,7 @@ export class DataverseClient {
       this.tokenPromise = getAccessToken(
         this.config.tenantId,
         this.config.clientId,
-        this.config.dataverseUrl
+        [`${this.config.dataverseUrl}/user_impersonation`],
       );
     }
     return this.tokenPromise;

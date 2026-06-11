@@ -8,9 +8,11 @@ import {
 } from '@modelcontextprotocol/sdk/types.js';
 import { loadConfig } from './config.js';
 import { DataverseClient } from './dataverse.js';
+import { GraphClient } from './graph.js';
 
 const config = loadConfig();
 const client = new DataverseClient(config);
+const graph  = new GraphClient(config);
 
 const server = new Server(
   { name: 'frontier-timesheets', version: '1.0.0' },
@@ -99,6 +101,52 @@ const TOOLS: Tool[] = [
       },
     },
   },
+
+  // ── Microsoft Graph tools ─────────────────────────────────────────────────
+  {
+    name: 'graph_get_activity_stats',
+    description:
+      'Get time spent per activity type (Email, Meeting, Focus, Chat, Call) for the last complete week ' +
+      'from Microsoft Viva Insights via Graph API. Use this to understand how the user split their work time ' +
+      'before drafting timesheets. Requires Analytics.Read permission and a Viva Insights licence.',
+    inputSchema: { type: 'object', properties: {} },
+  },
+  {
+    name: 'graph_get_recent_activities',
+    description:
+      'Get recently used apps and documents from the Windows Activity Timeline via Microsoft Graph. ' +
+      'Returns app name, document title, URL, and active duration in seconds. ' +
+      'Useful for identifying what the user worked on across devices.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        top: {
+          type: 'integer',
+          minimum: 1,
+          maximum: 100,
+          description: 'Number of recent activities to return (default 25)',
+        },
+      },
+    },
+  },
+  {
+    name: 'graph_get_used_documents',
+    description:
+      'Get documents and SharePoint/OneDrive sites recently accessed by the user via Microsoft Graph insights. ' +
+      'Returns document name, URL, resource type, and last-accessed timestamp. ' +
+      'Useful for mapping work to D365 projects when calendar context is limited.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        top: {
+          type: 'integer',
+          minimum: 1,
+          maximum: 100,
+          description: 'Number of documents to return (default 25)',
+        },
+      },
+    },
+  },
 ];
 
 // ── List tools handler ───────────────────────────────────────────────────────
@@ -173,6 +221,61 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       case 'd365_delete_time_entry': {
         await client.deleteTimeEntry(a.time_entry_id as string);
         return text(`🗑️ Time entry ${a.time_entry_id} deleted.`);
+      }
+
+      // ── Microsoft Graph ──────────────────────────────────────────────────
+
+      case 'graph_get_activity_stats': {
+        const stats = await graph.getActivityStatistics();
+        if (!stats.length) return text('No activity statistics returned.');
+
+        const grouped: Record<string, typeof stats> = {};
+        for (const s of stats) {
+          (grouped[s.activity] ??= []).push(s);
+        }
+
+        const lines: string[] = ['📊 Activity Statistics — last complete week\n'];
+        for (const [activity, days] of Object.entries(grouped)) {
+          const total = days.reduce((sum, d) => sum + d.durationHours, 0);
+          const afterHours = days.reduce((sum, d) => sum + (d.afterHoursHours ?? 0), 0);
+          lines.push(`**${activity}** — ${total.toFixed(1)}h total (${afterHours.toFixed(1)}h after hours)`);
+
+          for (const d of days) {
+            let detail = `  ${d.startDate}: ${d.durationHours.toFixed(1)}h`;
+            if (activity === 'Meeting' && d.conflictingHours) detail += ` | ${d.conflictingHours.toFixed(1)}h conflicting`;
+            if (activity === 'Meeting' && d.multitaskingHours) detail += ` | ${d.multitaskingHours.toFixed(1)}h multitasking`;
+            if (activity === 'Email' && d.readHours != null) detail += ` | read ${d.readHours.toFixed(1)}h, sent ${(d.sentHours ?? 0).toFixed(1)}h`;
+            lines.push(detail);
+          }
+          lines.push('');
+        }
+        return text(lines.join('\n'));
+      }
+
+      case 'graph_get_recent_activities': {
+        const top = (a.top as number | undefined) ?? 25;
+        const activities = await graph.getRecentActivities(top);
+        if (!activities.length) return text('No recent activities found.');
+
+        const lines = activities.map((act) => {
+          const duration = act.activeDurationSeconds
+            ? ` (${Math.round(act.activeDurationSeconds / 60)} min active)`
+            : '';
+          const url = act.contentUrl ? `\n   URL: ${act.contentUrl}` : '';
+          return `• [${act.lastModified?.substring(0, 10)}] ${act.appDisplayName} — ${act.displayText}${duration}${url}`;
+        });
+        return text(`🕐 Recent Activities (${activities.length}):\n\n` + lines.join('\n'));
+      }
+
+      case 'graph_get_used_documents': {
+        const top = (a.top as number | undefined) ?? 25;
+        const docs = await graph.getUsedDocuments(top);
+        if (!docs.length) return text('No recently used documents found.');
+
+        const lines = docs.map((d) =>
+          `• [${d.lastUsed?.substring(0, 10)}] ${d.resourceType} — ${d.name}\n   ${d.webUrl}`
+        );
+        return text(`📄 Recently Used Documents (${docs.length}):\n\n` + lines.join('\n'));
       }
 
       default:

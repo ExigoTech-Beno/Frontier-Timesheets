@@ -4,6 +4,11 @@
       "command": "node",
       "args": ["./dist/index.js"],
       "tools": ["*"]
+    },
+    "workiq": {
+      "command": "npx",
+      "args": ["-y", "@microsoft/workiq@latest", "mcp"],
+      "tools": ["*"]
     }
   }
 }

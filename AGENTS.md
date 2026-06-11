@@ -33,6 +33,7 @@ Frontier-Timesheets/
 
 ## MCP Tools (frontier-timesheets server)
 
+### D365 Project Operations
 | Tool | Purpose |
 |------|---------|
 | `d365_list_projects` | List active D365 projects |
@@ -42,6 +43,13 @@ Frontier-Timesheets/
 | `d365_get_time_entries` | Get time entries for a date range |
 | `d365_create_time_entry` | Create a new msdyn_timeentry record |
 | `d365_delete_time_entry` | Delete a draft time entry |
+
+### Microsoft Graph (productivity intelligence)
+| Tool | Purpose |
+|------|---------|
+| `graph_get_activity_stats` | Hours in Email/Meeting/Focus/Chat/Call — last week (Viva Insights, `Analytics.Read`) |
+| `graph_get_recent_activities` | Windows Activity Timeline — recently used apps/docs (`UserActivity.ReadWrite.CreatedByApp`) |
+| `graph_get_used_documents` | Recently accessed SharePoint/OneDrive documents (`Sites.Read.All`) |
 
 ## Authentication
 

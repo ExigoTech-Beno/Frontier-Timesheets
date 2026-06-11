@@ -52,6 +52,24 @@ Note any dates that are already fully covered (e.g., 8h logged). Skip those date
 
 ---
 
+### Step 2b: Get Graph Activity Summary (optional but recommended)
+
+If the user has a Viva Insights licence, pull their activity breakdown for the week to supplement calendar data:
+
+```
+frontier-timesheets-graph_get_activity_stats ()
+```
+
+Use this to cross-check total meeting/focus/email hours against the timesheet draft at the end.
+
+Also pull recently used documents to help map ambiguous work to projects:
+
+```
+frontier-timesheets-graph_get_used_documents (top: 50)
+```
+
+---
+
 ### Step 3: Fetch Available Projects
 
 Get the list of active projects:
@@ -219,6 +237,9 @@ If any entries failed, suggest remediation steps.
 | frontier-timesheets | `d365_get_time_entry_types` | Get valid type option values |
 | frontier-timesheets | `d365_get_time_entries` | Check already-logged entries |
 | frontier-timesheets | `d365_create_time_entry` | Create approved entries in D365 |
+| frontier-timesheets | `graph_get_activity_stats` | Viva Insights time breakdown (optional) |
+| frontier-timesheets | `graph_get_used_documents` | Recently accessed docs for project mapping (optional) |
+| frontier-timesheets | `graph_get_recent_activities` | Windows Timeline activity for cross-device context (optional) |
 
 ---
 

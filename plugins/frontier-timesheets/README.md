@@ -45,6 +45,8 @@ Copy `.env.example` to `.env` for reference. See [Azure App Registration](#azure
 
 ## MCP Tools
 
+### D365 Project Operations
+
 | Tool | Description |
 |------|-------------|
 | `d365_list_projects` | List active projects (optional name search) |
@@ -54,6 +56,14 @@ Copy `.env.example` to `.env` for reference. See [Azure App Registration](#azure
 | `d365_get_time_entries` | Get logged entries for a date range |
 | `d365_create_time_entry` | Create a new time entry in D365 |
 | `d365_delete_time_entry` | Delete a draft time entry |
+
+### Microsoft Graph (productivity intelligence)
+
+| Tool | Description |
+|------|-------------|
+| `graph_get_activity_stats` | Hours spent in Email / Meeting / Focus / Chat / Call for the last week (Viva Insights) |
+| `graph_get_recent_activities` | Recently used apps and documents from Windows Activity Timeline |
+| `graph_get_used_documents` | Recently accessed SharePoint / OneDrive documents with timestamps |
 
 ---
 
@@ -72,7 +82,11 @@ Create an app registration in [Entra ID](https://portal.azure.com/#blade/Microso
 
 1. **New registration** → any name (e.g. `Frontier Timesheets CLI`)
 2. **Redirect URI** → `http://localhost` (Public client / native)
-3. **API permissions** → Add `Dynamics CRM` → `user_impersonation` (Delegated)
+3. **API permissions** → Add the following Delegated permissions:
+   - `Dynamics CRM` → `user_impersonation`
+   - `Microsoft Graph` → `Analytics.Read` *(requires Viva Insights licence)*
+   - `Microsoft Graph` → `Sites.Read.All`
+   - `Microsoft Graph` → `UserActivity.ReadWrite.CreatedByApp`
 4. **Authentication** → Enable "Allow public client flows"
 5. Copy the **Application (client) ID** → `D365_CLIENT_ID`
 6. Copy the **Directory (tenant) ID** → `D365_TENANT_ID`
@@ -83,5 +97,5 @@ Create an app registration in [Entra ID](https://portal.azure.com/#blade/Microso
 
 ## Also requires
 
-- `workiq` plugin installed: `/plugin install workiq@work-iq`
-- Node.js 18+
+- Node.js 18+ (workiq is bundled via `npx @microsoft/workiq` — no separate install needed)
+- A Microsoft 365 Copilot licence for the authenticated user (required by workiq)

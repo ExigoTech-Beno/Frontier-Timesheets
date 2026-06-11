@@ -24,8 +24,7 @@ export D365_CLIENT_ID=your-client-id
 # 4. Install the plugin
 /plugin install frontier-timesheets@Frontier-Timesheets
 
-# 5. Also install workiq (provides M365 calendar/email/Teams access)
-/plugin install workiq@work-iq
+# workiq (M365 calendar/email/Teams access) is bundled — no separate install needed
 ```
 
 **Then just ask:**
