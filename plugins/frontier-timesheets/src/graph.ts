@@ -9,6 +9,13 @@ const GRAPH_SCOPES = [
   'https://graph.microsoft.com/Analytics.Read',
   'https://graph.microsoft.com/Sites.Read.All',
   'https://graph.microsoft.com/UserActivity.ReadWrite.CreatedByApp',
+  'https://graph.microsoft.com/Calendars.Read',
+  'https://graph.microsoft.com/Mail.Read',
+  'https://graph.microsoft.com/Chat.Read',
+  'https://graph.microsoft.com/Tasks.Read',
+  'https://graph.microsoft.com/Notes.Read',
+  'https://graph.microsoft.com/Files.Read',
+  'https://graph.microsoft.com/Team.ReadBasic.All',
 ];
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -46,6 +53,86 @@ export interface UsedDocument {
   webUrl: string;
   lastUsed: string;
   resourceType: string;
+}
+
+export interface CalendarEvent {
+  id: string;
+  subject: string;
+  start: string;           // ISO 8601
+  end: string;             // ISO 8601
+  durationMinutes: number;
+  isTeamsMeeting: boolean;
+  organizer: string;
+  attendeeCount: number;
+  location?: string;
+  isAllDay: boolean;
+  isCancelled: boolean;
+}
+
+export interface EmailSummary {
+  id: string;
+  subject: string;
+  from: string;
+  receivedAt: string;      // ISO 8601
+  preview: string;
+  isRead: boolean;
+  hasAttachments: boolean;
+}
+
+export interface TeamsChat {
+  id: string;
+  chatType: string;        // 'oneOnOne' | 'group' | 'meeting'
+  topic: string;
+  lastMessage: string;
+  lastMessageAt: string;   // ISO 8601
+  lastMessageFrom: string;
+}
+
+export interface TodoTask {
+  id: string;
+  title: string;
+  status: string;          // 'notStarted' | 'inProgress' | 'completed'
+  listName: string;
+  createdDateTime: string;
+  completedDateTime?: string;
+  dueDateTime?: string;
+  importance: string;
+}
+
+export interface PlannerTask {
+  id: string;
+  title: string;
+  planTitle: string;
+  bucketName: string;
+  percentComplete: number;
+  startDateTime?: string;
+  dueDateTime?: string;
+  completedDateTime?: string;
+}
+
+export interface OneNotePage {
+  id: string;
+  title: string;
+  notebookName: string;
+  sectionName: string;
+  lastModified: string;
+  createdDateTime: string;
+  webUrl: string;
+}
+
+export interface OneDriveFile {
+  id: string;
+  name: string;
+  webUrl: string;
+  lastModified: string;
+  fileType: string;
+  sizeBytes?: number;
+}
+
+export interface JoinedTeam {
+  id: string;
+  displayName: string;
+  description: string;
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -191,5 +278,281 @@ export class GraphClient {
         resourceType: res.type ?? '',
       };
     });
+  }
+
+  /**
+   * Returns calendar events for a date range.
+   * Requires Calendars.Read.
+   */
+  async getCalendarEvents(startDate: string, endDate: string): Promise<CalendarEvent[]> {
+    const startDT = `${startDate}T00:00:00`;
+    const endDT   = `${endDate}T23:59:59`;
+    const select  = 'id,subject,start,end,isAllDay,isCancelled,isOnlineMeeting,onlineMeetingProvider,organizer,attendees,location';
+    const path    = `/me/calendarView?startDateTime=${encodeURIComponent(startDT)}&endDateTime=${encodeURIComponent(endDT)}&$select=${select}&$top=100&$orderby=start/dateTime`;
+
+    const data = await this.fetch<{ value: Array<Record<string, unknown>> }>(GRAPH_V1, path);
+
+    return data.value.map((ev) => {
+      const startStr = ((ev.start as Record<string, string>)?.dateTime ?? '') + 'Z';
+      const endStr   = ((ev.end   as Record<string, string>)?.dateTime ?? '') + 'Z';
+      const startMs  = new Date(startStr).getTime();
+      const endMs    = new Date(endStr).getTime();
+      const durationMinutes = isNaN(startMs) || isNaN(endMs) ? 0 : Math.round((endMs - startMs) / 60000);
+      const attendees = (ev.attendees as Array<Record<string, unknown>> | undefined) ?? [];
+      const organizer = ((ev.organizer as Record<string, unknown>)?.emailAddress as Record<string, string>)?.name ?? '';
+      const location  = ((ev.location  as Record<string, unknown>)?.displayName  as string) ?? undefined;
+      const isTeams   = ev.isOnlineMeeting === true && (ev.onlineMeetingProvider as string) === 'teamsForBusiness';
+
+      return {
+        id:              ev.id as string,
+        subject:         (ev.subject as string) ?? '(No subject)',
+        start:           startStr.replace('Z', ''),
+        end:             endStr.replace('Z', ''),
+        durationMinutes,
+        isTeamsMeeting:  isTeams,
+        organizer,
+        attendeeCount:   attendees.length,
+        location:        location || undefined,
+        isAllDay:        ev.isAllDay === true,
+        isCancelled:     ev.isCancelled === true,
+      };
+    });
+  }
+
+  /**
+   * Returns a summary of received emails for a date range.
+   * Requires Mail.Read.
+   */
+  async getEmails(startDate: string, endDate: string, top = 50): Promise<EmailSummary[]> {
+    const start  = `${startDate}T00:00:00Z`;
+    const end    = `${endDate}T23:59:59Z`;
+    const filter = `receivedDateTime ge ${start} and receivedDateTime le ${end}`;
+    const select = 'id,subject,from,receivedDateTime,bodyPreview,isRead,hasAttachments';
+    const path   = `/me/messages?$filter=${encodeURIComponent(filter)}&$select=${select}&$top=${top}&$orderby=receivedDateTime asc`;
+
+    const data = await this.fetch<{ value: Array<Record<string, unknown>> }>(GRAPH_V1, path);
+
+    return data.value.map((msg) => {
+      const fromAddr = ((msg.from as Record<string, unknown>)?.emailAddress as Record<string, string>);
+      return {
+        id:             msg.id as string,
+        subject:        (msg.subject as string) ?? '(No subject)',
+        from:           fromAddr?.name ?? fromAddr?.address ?? '',
+        receivedAt:     msg.receivedDateTime as string ?? '',
+        preview:        (msg.bodyPreview as string ?? '').substring(0, 200),
+        isRead:         msg.isRead === true,
+        hasAttachments: msg.hasAttachments === true,
+      };
+    });
+  }
+
+  /**
+   * Returns recent Teams chats with last-message preview.
+   * Requires Chat.Read.
+   */
+  async getTeamsChats(startDate: string, endDate: string): Promise<TeamsChat[]> {
+    const start = new Date(`${startDate}T00:00:00Z`).getTime();
+    const end   = new Date(`${endDate}T23:59:59Z`).getTime();
+
+    // Fetch recent chats with last message preview
+    const data = await this.fetch<{ value: Array<Record<string, unknown>> }>(
+      GRAPH_V1,
+      '/me/chats?$expand=lastMessagePreview&$top=50',
+    );
+
+    const results: TeamsChat[] = [];
+
+    for (const chat of data.value) {
+      const lastMsgPreview = (chat.lastMessagePreview ?? {}) as Record<string, unknown>;
+      const lastMsgAt = lastMsgPreview.createdDateTime as string | undefined;
+      if (!lastMsgAt) continue;
+
+      const msgTime = new Date(lastMsgAt).getTime();
+      if (msgTime < start || msgTime > end) continue;
+
+      const fromUser = (lastMsgPreview.from as Record<string, unknown> | undefined);
+      const fromDisplay = (fromUser?.user as Record<string, string> | undefined)?.displayName
+                       ?? (fromUser?.application as Record<string, string> | undefined)?.displayName
+                       ?? 'Unknown';
+      const bodyContent = ((lastMsgPreview.body as Record<string, string> | undefined)?.content ?? '')
+        .replace(/<[^>]+>/g, '')   // strip HTML tags from Teams messages
+        .substring(0, 200);
+
+      results.push({
+        id:              chat.id as string,
+        chatType:        (chat.chatType as string) ?? 'oneOnOne',
+        topic:           (chat.topic as string) ?? '',
+        lastMessage:     bodyContent,
+        lastMessageAt:   lastMsgAt,
+        lastMessageFrom: fromDisplay,
+      });
+    }
+
+    return results.sort((a, b) => a.lastMessageAt.localeCompare(b.lastMessageAt));
+  }
+
+  /**
+   * Returns Microsoft To Do tasks, optionally filtered to a date range.
+   * Requires Tasks.Read permission.
+   */
+  async getTodoTasks(startDate?: string, endDate?: string): Promise<TodoTask[]> {
+    // Fetch all task lists
+    const listsData = await this.fetch<{ value: Array<Record<string, unknown>> }>(
+      GRAPH_V1, '/me/todo/lists',
+    );
+
+    const results: TodoTask[] = [];
+
+    for (const list of listsData.value) {
+      const listId   = list.id as string;
+      const listName = (list.displayName as string) ?? 'Tasks';
+
+      // Fetch tasks in this list — filter completed ones if date range provided
+      let path = `/me/todo/lists/${listId}/tasks?$top=100`;
+      const data = await this.fetch<{ value: Array<Record<string, unknown>> }>(GRAPH_V1, path);
+
+      for (const task of data.value) {
+        const completedRaw = (task.completedDateTime as Record<string, string> | undefined)?.dateTime;
+        const createdRaw   = task.createdDateTime as string | undefined;
+        const dueRaw       = (task.dueDateTime as Record<string, string> | undefined)?.dateTime;
+
+        // Apply date filter if provided — include tasks created or completed within range
+        if (startDate && endDate) {
+          const start = new Date(startDate).getTime();
+          const end   = new Date(endDate).getTime() + 86_400_000;
+          const createdMs   = createdRaw   ? new Date(createdRaw).getTime()   : 0;
+          const completedMs = completedRaw ? new Date(completedRaw).getTime() : 0;
+          if (createdMs < start && completedMs < start) continue;
+          if (createdMs > end   && completedMs > end)   continue;
+        }
+
+        results.push({
+          id:                listId + ':' + (task.id as string),
+          title:             (task.title as string) ?? '(Untitled)',
+          status:            (task.status as string) ?? 'notStarted',
+          listName,
+          createdDateTime:   createdRaw ?? '',
+          completedDateTime: completedRaw,
+          dueDateTime:       dueRaw,
+          importance:        (task.importance as string) ?? 'normal',
+        });
+      }
+    }
+
+    return results.sort((a, b) => (a.createdDateTime).localeCompare(b.createdDateTime));
+  }
+
+  /**
+   * Returns Planner tasks assigned to the current user.
+   * Requires Tasks.Read permission.
+   */
+  async getPlannerTasks(startDate?: string, endDate?: string): Promise<PlannerTask[]> {
+    const data = await this.fetch<{ value: Array<Record<string, unknown>> }>(
+      GRAPH_V1, '/me/planner/tasks',
+    );
+
+    const start = startDate ? new Date(startDate).getTime() : 0;
+    const end   = endDate   ? new Date(endDate).getTime() + 86_400_000 : Infinity;
+
+    const results: PlannerTask[] = [];
+    for (const task of data.value) {
+      const details    = (task.details  ?? {}) as Record<string, unknown>;
+      const createdRaw = task.createdDateTime as string | undefined;
+      const dueRaw     = task.dueDateTime as string | undefined;
+      const completedRaw = (task.completedDateTime as string | undefined);
+
+      // Date filter — include if created or due in range
+      const createdMs   = createdRaw   ? new Date(createdRaw).getTime()   : 0;
+      const completedMs = completedRaw ? new Date(completedRaw).getTime() : 0;
+      const dueMs       = dueRaw       ? new Date(dueRaw).getTime()       : 0;
+      const relevantMs  = completedMs || dueMs || createdMs;
+      if (startDate && endDate && (relevantMs < start || relevantMs > end)) continue;
+
+      results.push({
+        id:              task.id as string,
+        title:           (task.title as string) ?? '(Untitled)',
+        planTitle:       (task.planId as string) ?? '',   // ID — we don't expand plans here
+        bucketName:      (details.bucketId as string) ?? '',
+        percentComplete: (task.percentComplete as number) ?? 0,
+        startDateTime:   task.startDateTime as string | undefined,
+        dueDateTime:     dueRaw,
+        completedDateTime: completedRaw,
+      });
+    }
+
+    return results;
+  }
+
+  /**
+   * Returns recently modified OneNote pages.
+   * Requires Notes.Read permission.
+   */
+  async getOneNotePages(startDate?: string, endDate?: string, top = 50): Promise<OneNotePage[]> {
+    let filter = '';
+    if (startDate) {
+      filter = `&$filter=lastModifiedDateTime ge ${startDate}T00:00:00Z`;
+      if (endDate) filter += ` and lastModifiedDateTime le ${endDate}T23:59:59Z`;
+    }
+
+    const path = `/me/onenote/pages?$top=${top}&$orderby=lastModifiedDateTime desc&$select=id,title,lastModifiedDateTime,createdDateTime,webUrl,parentSection,parentNotebook${filter}`;
+
+    const data = await this.fetch<{ value: Array<Record<string, unknown>> }>(GRAPH_V1, path);
+
+    return data.value.map((page) => {
+      const section  = (page.parentSection  as Record<string, string> | undefined);
+      const notebook = (page.parentNotebook as Record<string, string> | undefined);
+      return {
+        id:               page.id as string,
+        title:            (page.title as string) ?? '(Untitled)',
+        notebookName:     notebook?.displayName ?? '',
+        sectionName:      section?.displayName  ?? '',
+        lastModified:     (page.lastModifiedDateTime as string) ?? '',
+        createdDateTime:  (page.createdDateTime     as string) ?? '',
+        webUrl:           (page.webUrl as string) ?? '',
+      };
+    });
+  }
+
+  /**
+   * Returns recently modified/accessed OneDrive files.
+   * Requires Files.Read permission.
+   */
+  async getOneDriveRecentFiles(top = 30): Promise<OneDriveFile[]> {
+    const data = await this.fetch<{ value: Array<Record<string, unknown>> }>(
+      GRAPH_V1,
+      `/me/drive/recent?$top=${top}`,
+    );
+
+    return data.value.map((item) => {
+      const fileInfo = (item.file as Record<string, unknown> | undefined);
+      const mimeType = (fileInfo?.mimeType as string) ?? '';
+      const ext      = (item.name as string ?? '').split('.').pop() ?? '';
+      return {
+        id:           item.id as string,
+        name:         (item.name as string) ?? '',
+        webUrl:       (item.webUrl as string) ?? '',
+        lastModified: ((item.fileSystemInfo as Record<string, string> | undefined)?.lastModifiedDateTime
+                      ?? (item.lastModifiedDateTime as string)
+                      ?? ''),
+        fileType:     (ext || mimeType.split('/').pop()) ?? 'file',
+        sizeBytes:    (item.size as number | undefined),
+      };
+    });
+  }
+
+  /**
+   * Returns the teams the user has joined in Microsoft Teams.
+   * Requires Team.ReadBasic.All permission.
+   */
+  async getJoinedTeams(): Promise<JoinedTeam[]> {
+    const data = await this.fetch<{ value: Array<Record<string, unknown>> }>(
+      GRAPH_V1, '/me/joinedTeams?$select=id,displayName,description',
+    );
+
+    return data.value.map((team) => ({
+      id:          team.id as string,
+      displayName: (team.displayName as string) ?? '',
+      description: (team.description as string) ?? '',
+    }));
   }
 }

@@ -50,6 +50,31 @@ Frontier-Timesheets/
 | `graph_get_activity_stats` | Hours in Email/Meeting/Focus/Chat/Call — last week (Viva Insights, `Analytics.Read`) |
 | `graph_get_recent_activities` | Windows Activity Timeline — recently used apps/docs (`UserActivity.ReadWrite.CreatedByApp`) |
 | `graph_get_used_documents` | Recently accessed SharePoint/OneDrive documents (`Sites.Read.All`) |
+| `graph_get_calendar_events` | Outlook Calendar events for a date range — subject, duration, Teams flag, attendees (`Calendars.Read`) |
+| `graph_get_emails` | Received email summary for a date range — sender, subject, preview (`Mail.Read`) |
+| `graph_get_teams_chats` | Teams chats active during a date range — topic, last message preview (`Chat.Read`) |
+
+### Work Activity Report
+| Tool | Purpose |
+|------|---------|
+| `browser_get_history` | Read Edge/Chrome browser history for a date range (reads local SQLite) |
+| `github_get_events` | Fetch GitHub pushes, PRs, issues for a user over a date range |
+| `activity_build_report` | Generate a full HTML work activity report combining all sources; set `include_graph=true` to also pull Outlook/Teams data |
+
+**Env vars for activity report:**
+| Variable | Description |
+|----------|-------------|
+| `GITHUB_USERNAME` | GitHub handle (e.g. `ExigoTech-Beno`) for fetching events |
+| `GITHUB_TOKEN` | Optional PAT for private repo events |
+| `REPORT_USER_NAME` | Display name in the report header (e.g. `Ben Opit`) |
+
+**Graph permissions required for full report** (device-code consent on first run):
+- `Analytics.Read` — Viva Insights activity stats
+- `Sites.Read.All` — SharePoint/OneDrive used documents
+- `UserActivity.ReadWrite.CreatedByApp` — Windows Activity Timeline
+- `Calendars.Read` — Outlook calendar events
+- `Mail.Read` — Outlook received emails
+- `Chat.Read` — Teams chat threads
 
 ## Authentication
 
