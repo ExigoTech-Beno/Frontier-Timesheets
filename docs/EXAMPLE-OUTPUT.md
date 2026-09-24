@@ -149,3 +149,11 @@ You: What have I logged this week?
 ```
 You: Delete today's entry for Beta Platform — it should be Frontier Digital
 ```
+
+---
+
+## Example: HTML Work Activity Report
+
+The `activity_build_report` tool (see `work-activity-reporter` skill) generates a full HTML report combining Copilot CLI sessions, browser history, GitHub events, and optional Graph data (calendar/email/Teams) into a project activity breakdown with charts.
+
+A real, generated example is saved at [`examples/work-activity-report-example.html`](./examples/work-activity-report-example.html) — open it directly in a browser to see the level of detail the tool produces (project bar chart, browser visits by project, and a full activity chronology).

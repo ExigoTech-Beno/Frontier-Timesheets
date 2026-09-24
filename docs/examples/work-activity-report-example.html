@@ -1,0 +1,2400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ben Opit — Work Activity Report: 19–20 May 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f8fafc; color: #1e293b; }
+  .header { background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white; padding: 32px 40px; }
+  .header h1 { font-size: 24px; font-weight: 700; }
+  .header p { color: #94a3b8; margin-top: 4px; font-size: 14px; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+  .card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .card h2 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: #64748b; margin-bottom: 16px; }
+  .stat-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid #f1f5f9; }
+  .stat-row:last-child { border-bottom: none; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .stat-name { flex: 1; font-size: 14px; font-weight: 500; }
+  .stat-bar-wrap { width: 120px; height: 6px; background: #f1f5f9; border-radius: 3px; overflow: hidden; }
+  .stat-bar { height: 100%; border-radius: 3px; }
+  .stat-count { font-size: 13px; color: #64748b; min-width: 40px; text-align: right; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; background: white; padding: 4px 10px; border-radius: 20px; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+  .section-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; margin-top: 32px; }
+  .day-block { margin-bottom: 32px; }
+  .day-header { font-size: 15px; font-weight: 700; color: #475569; padding: 8px 0; border-bottom: 2px solid #e2e8f0; margin-bottom: 12px; }
+  .event { display: flex; gap: 12px; padding: 6px 8px; border-radius: 8px; font-size: 13px; margin-bottom: 3px; transition: background .1s; }
+  .event:hover { background: #f8fafc; }
+  .event-time { color: #94a3b8; font-size: 12px; min-width: 42px; padding-top: 1px; }
+  .event-icon { min-width: 20px; }
+  .event-project { font-weight: 600; min-width: 160px; font-size: 12px; padding-top: 1px; }
+  .event-detail { color: #475569; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .source-badge { font-size: 10px; padding: 1px 6px; border-radius: 10px; background: #f1f5f9; color: #64748b; margin-left: 4px; }
+  .summary-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .pill { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; color: white; }
+  .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .filter-btn { padding: 4px 12px; border: 1px solid #e2e8f0; border-radius: 20px; font-size: 12px; cursor: pointer; background: white; }
+  .filter-btn.active, .filter-btn:hover { background: #1e293b; color: white; border-color: #1e293b; }
+  @media(max-width:700px){ .grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📊 Work Activity Report</h1>
+  <p>Ben Opit &nbsp;·&nbsp; 19–20 May 2026 &nbsp;·&nbsp; Sources: Browser History · GitHub · Copilot CLI Sessions</p>
+</div>
+<div class="container">
+<div class="summary-pills"><div class="pill" style="background:#1e293b">📅 2 Days</div><div class="pill" style="background:#4c48e3">💻 16 GitHub Events</div><div class="pill" style="background:#ec4899">🤖 9 Copilot Sessions</div><div class="pill" style="background:#0ea5e9">🌐 413 Browser Visits</div><div class="pill" style="background:#10b981">📁 18 Projects</div></div><div class="grid"><div class="card"><h2>🏗 Project Activity (weighted signals)</h2><div class="stat-row">
+      <div class="dot" style="background:#4c48e3"></div>
+      <div class="stat-name">BC SmartStart SoW</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:28%;background:#4c48e3"></div></div>
+      <div class="stat-count">28%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#d1d5db"></div>
+      <div class="stat-name">Research / Other</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:21%;background:#d1d5db"></div></div>
+      <div class="stat-count">21%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#9ca3af"></div>
+      <div class="stat-name">System / OS</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:11%;background:#9ca3af"></div></div>
+      <div class="stat-count">11%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#06b6d4"></div>
+      <div class="stat-name">AI Research</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:6%;background:#06b6d4"></div></div>
+      <div class="stat-count">6%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#8b5cf6"></div>
+      <div class="stat-name">TelstraMSFT FundingAgent</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:4%;background:#8b5cf6"></div></div>
+      <div class="stat-count">4%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#ec4899"></div>
+      <div class="stat-name">Frontier Timesheets</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:4%;background:#ec4899"></div></div>
+      <div class="stat-count">4%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#2563eb"></div>
+      <div class="stat-name">OneDrive / SharePoint</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:4%;background:#2563eb"></div></div>
+      <div class="stat-count">4%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#10b981"></div>
+      <div class="stat-name">StrataIQ</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:4%;background:#10b981"></div></div>
+      <div class="stat-count">4%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#1f2937"></div>
+      <div class="stat-name">GitHub</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:3%;background:#1f2937"></div></div>
+      <div class="stat-count">3%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#0ea5e9"></div>
+      <div class="stat-name">CCC FabricIQ</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:3%;background:#0ea5e9"></div></div>
+      <div class="stat-count">3%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#0077b5"></div>
+      <div class="stat-name">LinkedIn Live</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:3%;background:#0077b5"></div></div>
+      <div class="stat-count">3%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#94a3b8"></div>
+      <div class="stat-name">LinkedIn</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:3%;background:#94a3b8"></div></div>
+      <div class="stat-count">3%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#f59e0b"></div>
+      <div class="stat-name">BoyceIQ</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:2%;background:#f59e0b"></div></div>
+      <div class="stat-count">2%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#f43f5e"></div>
+      <div class="stat-name">Marketing Merch</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:1%;background:#f43f5e"></div></div>
+      <div class="stat-count">1%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#d97706"></div>
+      <div class="stat-name">D365 CRM</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:1%;background:#d97706"></div></div>
+      <div class="stat-count">1%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#64748b"></div>
+      <div class="stat-name">Whiteboarding</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:1%;background:#64748b"></div></div>
+      <div class="stat-count">1%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#16a34a"></div>
+      <div class="stat-name">LG Professionals</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:0%;background:#16a34a"></div></div>
+      <div class="stat-count">0%</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#7c3aed"></div>
+      <div class="stat-name">Local Dev</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:0%;background:#7c3aed"></div></div>
+      <div class="stat-count">0%</div>
+    </div></div><div class="card"><h2>🌐 Browser Visits by Project</h2><div class="stat-row">
+      <div class="dot" style="background:#d1d5db"></div>
+      <div class="stat-name">Research / Other</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:100%;background:#d1d5db"></div></div>
+      <div class="stat-count">183</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#4c48e3"></div>
+      <div class="stat-name">BC SmartStart SoW</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:48%;background:#4c48e3"></div></div>
+      <div class="stat-count">65</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#06b6d4"></div>
+      <div class="stat-name">AI Research</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:36%;background:#06b6d4"></div></div>
+      <div class="stat-count">51</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#2563eb"></div>
+      <div class="stat-name">OneDrive / SharePoint</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:24%;background:#2563eb"></div></div>
+      <div class="stat-count">32</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#1f2937"></div>
+      <div class="stat-name">GitHub</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:21%;background:#1f2937"></div></div>
+      <div class="stat-count">29</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#94a3b8"></div>
+      <div class="stat-name">LinkedIn</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:18%;background:#94a3b8"></div></div>
+      <div class="stat-count">24</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#d97706"></div>
+      <div class="stat-name">D365 CRM</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:6%;background:#d97706"></div></div>
+      <div class="stat-count">8</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#64748b"></div>
+      <div class="stat-name">Whiteboarding</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:3%;background:#64748b"></div></div>
+      <div class="stat-count">6</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#f59e0b"></div>
+      <div class="stat-name">BoyceIQ</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:3%;background:#f59e0b"></div></div>
+      <div class="stat-count">5</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#10b981"></div>
+      <div class="stat-name">StrataIQ</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:3%;background:#10b981"></div></div>
+      <div class="stat-count">3</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#16a34a"></div>
+      <div class="stat-name">LG Professionals</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:3%;background:#16a34a"></div></div>
+      <div class="stat-count">3</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#0ea5e9"></div>
+      <div class="stat-name">CCC FabricIQ</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:0%;background:#0ea5e9"></div></div>
+      <div class="stat-count">2</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#7c3aed"></div>
+      <div class="stat-name">Local Dev</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:0%;background:#7c3aed"></div></div>
+      <div class="stat-count">1</div>
+    </div><div class="stat-row">
+      <div class="dot" style="background:#8b5cf6"></div>
+      <div class="stat-name">TelstraMSFT FundingAgent</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" style="width:0%;background:#8b5cf6"></div></div>
+      <div class="stat-count">1</div>
+    </div></div></div><div class="section-title">📅 Full Timeline</div><div class="day-block"><div class="day-header">Tuesday, 19 May 2026</div><div class="event">
+          <span class="event-time">07:51</span>
+          <span class="event-project" style="color:#f43f5e">Marketing Merch</span>
+          <span class="event-detail">Run Init Command (6 turns)</span>
+          <span class="source-badge">🤖 copilot</span>
+        </div><div class="event">
+          <span class="event-time">08:48</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Fix Admin Login Endpoint (48 turns)</span>
+          <span class="source-badge">🤖 copilot</span>
+        </div><div class="event">
+          <span class="event-time">09:14</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Issue opened: Admin SSO: Microsoft sign-in redirects to internal container hostname</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">09:15</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Issue closed: Admin SSO: Microsoft sign-in redirects to internal container hostname</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">09:15</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Push: fix: trust X-Forwarded-Host in NextAuth</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">09:25</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Push: security: restrict admin access to explicit email allowlist</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">09:29</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Push: fix: remove duplicate Legal industry, fix toggle save</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">09:30</span>
+          <span class="event-project" style="color:#0ea5e9">CCC FabricIQ</span>
+          <span class="event-detail">Review CCC FabricIQ Project Plan (11 turns)</span>
+          <span class="source-badge">🤖 copilot</span>
+        </div><div class="event">
+          <span class="event-time">09:30</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Issue opened: Azure Action Required: Restrict Entra app assignment</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">10:01</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">not happy jan at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:01</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">not happy jan at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:01</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">NOT HAPPY JAN - Yellow Pages Ad - YouTube</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:07</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail"></span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:15</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Recycling Compliance Ranger</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:16</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Push: feat: secret bypass URL for pack editor without SSO</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">10:16</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Recycling Compliance Ranger</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:17</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe  |  Home</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:17</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe  |  Home</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:26</span>
+          <span class="event-project" style="color:#9ca3af">System / OS</span>
+          <span class="event-detail">Stop Laptop From Hibernating (47 turns)</span>
+          <span class="source-badge">🤖 copilot</span>
+        </div><div class="event">
+          <span class="event-time">10:28</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Recycling Compliance Ranger</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:47</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Recycling Compliance Ranger</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:48</span>
+          <span class="event-project" style="color:#0ea5e9">CCC FabricIQ</span>
+          <span class="event-detail">Push: feat: update CCC IQ agent for v1.1 plan changes</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">10:52</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">phillippines language at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:53</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Languages of the Philippines - Wikipedia</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:53</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">phillippines language at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:53</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">indonesia language at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:53</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">indonesia language at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:53</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">indonesia language at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:53</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:53</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:53</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe  |  Home</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:55</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe  |  Home</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:55</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe  |  Home</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:55</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Create</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">10:56</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Push: chore: document gh CLI, az CLI and App Service setup</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">11:09</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">NSW Recycling Compliance</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:10</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">NSW Recycling Compliance</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:20</span>
+          <span class="event-project" style="color:#0077b5">LinkedIn Live</span>
+          <span class="event-detail">Plan LinkedIn Live And Substack (13 turns)</span>
+          <span class="source-badge">🤖 copilot</span>
+        </div><div class="event">
+          <span class="event-time">11:23</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Push: feat: bypass page navigation, sub-routes for industries, change log</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">12:00</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Exigo Tech Satisfaction Survey</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:00</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Exigo Tech Satisfaction Survey</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:05</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Branch created: feature/bypass-nav-changelog</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">12:09</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">PR opened: Bypass nav + change log</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">12:19</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Feed | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:19</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">(2) LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:21</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Feed | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:21</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Shaun Capps | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:33</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Feed | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:33</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">(1) LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:33</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">(1) Messaging | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:34</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">clause 101 course at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:34</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">clause 101 course at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:34</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">(1) Messaging | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:35</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:35</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">(1) Mark’s Services | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:35</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Feed | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:36</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">2026 Work Trend Index Annual Report - Key Takeaways</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:38</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">amr at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:38</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">amr at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:38</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">amr security solutions at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:38</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">amr security solutions at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:38</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">amr security solutions at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">14:36</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Messaging | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">14:36</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Messaging | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">14:36</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Feed | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">15:20</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">DeployIQ | AI-Powered Cybersecurity & Compliance</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Claude</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Claude</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">GovIQ — Director Education Platform</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">AI Ideas — Director Overview · May 2026</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#f59e0b">BoyceIQ</span>
+          <span class="event-detail">PracticeIQ for Accounting Firms — Powered by Exigo Tech Intelligence</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Boyce Chartered Accountants — Zero Trust Security Review</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Azure Resource Approval Request — Mike Legal AI</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Unlocking Council Intelligence — Visual Map</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Request-for-Quote - works--services-and-goods - Invitation.pdf</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">What Is Fabric Data Warehouse? - Microsoft Fabric | Microsoft Learn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">M365 Copilot</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">M365 Copilot</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Researcher | M365 Copilot</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">M365 Copilot</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Automate Git integration by using APIs - Microsoft Fabric | Microsoft Learn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Home - OneDrive</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">M365 Copilot</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Introducing the new hosted agents in Foundry Agent Service: secure, scalable com</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Fabric</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Randwick Local Council Fabric Demo Dataset and Instructions.docx</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Fabric</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail"></span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d97706">D365 CRM</span>
+          <span class="event-detail">Sign in to your account</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d97706">D365 CRM</span>
+          <span class="event-detail">Sign in to your account</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d97706">D365 CRM</span>
+          <span class="event-detail">Sign in to your account</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">FabriCouncil Demo - Policies and Procedures - All Documents</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">FabriCouncil Demo - Policies and Procedures - All Documents</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Working...</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">SharePoint</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Complete Developer Journey with Microsoft Foundry | Microsoft Foundry Blog</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">liverpoolcitycouncil - Opportunities - All Documents</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Working...</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Working...</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Working...</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Infor Pathway UX Getting Started User Guide</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Infor Documentation Library</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">dbt+ Microsoft Fabric: A strategic investment in t... - Microsoft Fabric Communi</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">dbt+ Microsoft Fabric: A strategic investment in t... - Microsoft Fabric Communi</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">dbt+ Microsoft Fabric: A strategic investment in t... - Microsoft Fabric Communi</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">dbt+ Microsoft Fabric: A strategic investment in t... - Microsoft Fabric Communi</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail"></span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail"></span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:12</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail"></span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:13</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Building a Microsoft Fabric data platform in 2026 (from scratch) - YouTube</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:13</span>
+          <span class="event-project" style="color:#d97706">D365 CRM</span>
+          <span class="event-detail">Microsoft Dynamics 365</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:13</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">bennyaustin/fabric-accelerator: Accelerator for building a Microsoft Fabric data</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:13</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">mcp/servers/Fabric.Mcp.Server/README.md at main · microsoft/mcp</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:13</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">bmad-code-org/BMAD-METHOD: Breakthrough Method for Agile Ai Driven Development</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:13</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">microsoft/skills-for-fabric: A collection of skills and MCP systems to enable us</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:13</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Siddharth-1001/agent-eval-harness: An open-source evaluation framework specifica</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:13</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Fabric</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:13</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Fabric</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:13</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Fabric</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:13</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Fabric</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:13</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Fabric</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:15</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:15</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:15</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Sharing Link Validation</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:15</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Claude Code 101</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:15</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Sharing Link Validation</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:16</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Exigo_Tech_Protect_DeployIQ_Strategy.docx</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:16</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Exigo_Tech_Protect_DeployIQ_Strategy.docx</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:17</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">blueskyproduction.sharepoint.com/_layouts/15/AccessDenied.aspx?Source=https%3A%2</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:17</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail"></span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:17</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail"></span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:17</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail"></span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:17</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Azure</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:17</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Azure</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Anthropic Courses</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Courses | Claude</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Vibe - Power Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Building with the Claude API</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Claude</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Accessing the API</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Accessing the API</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Fabric</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:19</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:21</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:21</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:21</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">web.powerva.microsoft.com</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:21</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">2026 Work Trend Index Annual Report - Key Takeaways</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:21</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">What is Claude Code?</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:21</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Sandboxing - Claude Code Docs</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:21</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Logo Design for Exito Tech Intelligence</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:21</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">DaVinci Resolve | Blackmagic Design</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:22</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:22</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:22</span>
+          <span class="event-project" style="color:#f59e0b">BoyceIQ</span>
+          <span class="event-detail">Brand Review — Exigo Tech IQ — Naming Shortlist</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:22</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:22</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:24</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">SharePoint</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:24</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">SharePoint</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:24</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">SharePoint</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:24</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Marketing - Documents - Local Govt Event - Telstra CIC - June 2025 - All Documen</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:25</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Marketing - Documents - All Documents</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:25</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Marketing - Documents - Design Team - All Documents</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:25</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">SharePoint</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:25</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">SharePoint</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:25</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">SharePoint</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:25</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Marketing - Documents - Local Govt Event - Telstra CIC - June 2025 - All Documen</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:25</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Marketing - Documents - Design Team - All Documents</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:25</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Marketing - EVENT ITEMS - All Documents</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:31</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Getting an API key</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:31</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Claude Platform</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:31</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Claude Platform</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:31</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Sign In | Claude Platform</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:32</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Claude Platform</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:32</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Claude Platform</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:36</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Making a request</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:43</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Multi-Turn conversations</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">17:53</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Chat exercise</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">18:50</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">System prompts</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">18:52</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">18:52</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">18:55</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">System prompts exercise</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">18:57</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Temperature</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:14</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Regenerate personal access token</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:14</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Edit Personal Access Token (Classic)</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:14</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Personal Access Tokens (Classic)</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:14</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">GitHub Apps</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:14</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Your profile</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:19</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Course satisfaction survey</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:19</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Response streaming</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:27</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Structured data</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:35</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Structured data exercise</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:35</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Azure</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:35</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail"></span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:35</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail"></span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:35</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail"></span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:35</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">portal.azure.com/auth/login/#</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:35</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">portal.azure.com/auth/login/#</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:39</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Quiz on accessing Claude with the API</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:52</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Prompt evaluation</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:53</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">A typical eval workflow</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">19:57</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Generating test datasets</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:04</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">media inck scape at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:04</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">media inck scape at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:04</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Inkscape - Draw Freely. | Inkscape</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:10</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Add an account</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:10</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail"></span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:10</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Redirecting</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:10</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Working...</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:10</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Keeper® Vault - ben.opit@exigotech.com.au</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:10</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Keeper® Vault Login</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:10</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Keeper® Vault - ben.opit@exigotech.com.au</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:10</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Device Activation</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:10</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Device Activation</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:19</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:20</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Sign in to your account</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:20</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Sign in to your account</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:21</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">quest 3 at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:22</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">quest 3 at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:22</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Meta Quest 3: Next-gen virtual reality headset | Meta Store (en-AU)</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:22</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Meta Quest 3: Next-gen virtual reality headset | Meta Store (en-AU)</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:22</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Meta Quest 3: New virtual reality headset – Buy now | Meta Store (en-AU)</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:23</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">affaan-m/ECC: The agent harness performance optimization system. Skills, instinc</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:27</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Running the eval</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:33</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Model based grading</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:41</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Sign in to your account</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:41</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Sign in to your account</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:42</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Code based grading</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:49</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:49</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:49</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Home - Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:51</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Overview - CCC IQ | Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:55</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Exercise on prompt evals</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:57</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">prezi sdk at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:57</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">prezi sdk at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:57</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Prezi API - Docs, SDKs & Integration</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:20</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Evaluation - CCC IQ | Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:20</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Evaluation - CCC IQ | Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:21</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Evaluation - CCC IQ | Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:23</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Evaluation - CCC IQ | Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:24</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Evaluation - CCC IQ | Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:25</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">github mcp at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:25</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">github mcp at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:25</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">github/github-mcp-server: GitHub's official MCP Server</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:26</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Feed | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:26</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">(2) LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:27</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Feed | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:27</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">(2) LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:27</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Feed | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:27</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">chris olsen | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:33</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:34</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Quiz on prompt evaluation</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:37</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Prompt engineering</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:50</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Being clear and direct</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:50</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:50</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:51</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Blackmagic Cloud</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:51</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Blackmagic Cloud</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:51</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Blackmagic Cloud</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:51</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Blackmagic Cloud</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:51</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Being specific</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:56</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Structure with XML tags</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:59</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Providing examples</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:05</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Exercise on prompting</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:09</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Quiz on prompt engineering techniques</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:13</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Introducing tool use</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:16</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Project overview</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Survey | Simplesat</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Survey | Simplesat</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Survey | Simplesat</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">23:27</span>
+          <span class="event-project" style="color:#8b5cf6">TelstraMSFT FundingAgent</span>
+          <span class="event-detail">Initialize Session (18 turns)</span>
+          <span class="source-badge">🤖 copilot</span>
+        </div></div><div class="day-block"><div class="day-header">Wednesday, 20 May 2026</div><div class="event">
+          <span class="event-time">01:13</span>
+          <span class="event-project" style="color:#f59e0b">BoyceIQ</span>
+          <span class="event-detail">Verify Team LinkedIn Profiles (6 turns)</span>
+          <span class="source-badge">🤖 copilot</span>
+        </div><div class="event">
+          <span class="event-time">01:18</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">PR merged: Bypass nav + change log</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">01:18</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Push: fix: SOW button error feedback, Next button label, changelog resilience</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">01:24</span>
+          <span class="event-project" style="color:#ec4899">Frontier Timesheets</span>
+          <span class="event-detail">Check Project Status (18 turns)</span>
+          <span class="source-badge">🤖 copilot</span>
+        </div><div class="event">
+          <span class="event-time">01:44</span>
+          <span class="event-project" style="color:#10b981">StrataIQ</span>
+          <span class="event-detail">Import ECC Repository (14 turns)</span>
+          <span class="source-badge">🤖 copilot</span>
+        </div><div class="event">
+          <span class="event-time">01:56</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Push: feat: redesign Matter X selection + domain privacy URL</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">09:26</span>
+          <span class="event-project" style="color:#f59e0b">BoyceIQ</span>
+          <span class="event-detail">Boyce AI Leaders Forum – Executive Research</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:40</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Verify Session</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:40</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Verify Session</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:40</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Device Activation</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:41</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Authorize application</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:41</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Confirm access</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:41</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Device Activation</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:47</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:47</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">legetti at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:48</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:48</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">legetti at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:48</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:48</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:49</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:49</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:49</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:49</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:49</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">09:51</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC-SmartStart-SoW-q06rtslmnx2fnacgg4lv75au.pdf</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:04</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Push: feat: tier fix, Affinity guide, privacy improvements, automation groundwork, CI work</span>
+          <span class="source-badge">💻 github</span>
+        </div><div class="event">
+          <span class="event-time">11:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Copilot Studio</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft 2026 Work Trend Index Annual Report</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Working...</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Working...</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Excalidraw Whiteboard</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:18</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">AI Adoption in Accounting Firms</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:28</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:29</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:29</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:29</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:29</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:38</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">FOGO mandates and rollout | EPA</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:45</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">affaan-m/ECC: The agent harness performance optimization system. Skills, instinc</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:48</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">M365 Copilot</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:48</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">M365 Copilot</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:51</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">affinity data analysis at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">11:52</span>
+          <span class="event-project" style="color:#10b981">StrataIQ</span>
+          <span class="event-detail">Logo Ideas for Australian Strata Platform</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:00</span>
+          <span class="event-project" style="color:#7c3aed">Local Dev</span>
+          <span class="event-detail">CCC IQ — Project Overview</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:06</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Prezi AI: Top AI Presentation Maker</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:06</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:51</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:51</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:52</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:52</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">12:52</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:10</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Microsoft Virtual Events Powered by Teams</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:10</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Boyce | Chartered Accountants & Advisory Services</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:10</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Latest News Updates & Industry Insights | Boyce</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:10</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Latest News Updates & Industry Insights | Boyce</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:11</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">RBA cash rate update: what it means - Boyce</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:13</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:13</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:13</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:14</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:24</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:24</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:24</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:24</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:24</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:25</span>
+          <span class="event-project" style="color:#f59e0b">BoyceIQ</span>
+          <span class="event-detail">BoyceIQ — Knowledge Product Concept</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:34</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Members · People · Exigo-Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">13:34</span>
+          <span class="event-project" style="color:#f59e0b">BoyceIQ</span>
+          <span class="event-detail">Exigo-Tech/BoyceIQ: A repo for Boyce AI Summit</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">15:08</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">makdaddy8888 (Makdaddy)</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">15:09</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">New repository</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">15:10</span>
+          <span class="event-project" style="color:#10b981">StrataIQ</span>
+          <span class="event-detail">makdaddy8888/StrataSphere</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">16:07</span>
+          <span class="event-project" style="color:#16a34a">LG Professionals</span>
+          <span class="event-detail">Local Government Customer Service | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:25</span>
+          <span class="event-project" style="color:#16a34a">LG Professionals</span>
+          <span class="event-detail">CX_Program</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:26</span>
+          <span class="event-project" style="color:#16a34a">LG Professionals</span>
+          <span class="event-detail">CX</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:30</span>
+          <span class="event-project" style="color:#64748b">Whiteboarding</span>
+          <span class="event-detail">Thu 6:50 AM</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:31</span>
+          <span class="event-project" style="color:#64748b">Whiteboarding</span>
+          <span class="event-detail">Thu 6:50 AM</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:31</span>
+          <span class="event-project" style="color:#64748b">Whiteboarding</span>
+          <span class="event-detail">Thu 6:50 AM</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:31</span>
+          <span class="event-project" style="color:#64748b">Whiteboarding</span>
+          <span class="event-detail">Wed 8:31 PM</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:31</span>
+          <span class="event-project" style="color:#64748b">Whiteboarding</span>
+          <span class="event-detail">Wed 8:31 PM</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:31</span>
+          <span class="event-project" style="color:#64748b">Whiteboarding</span>
+          <span class="event-detail">Wed 8:31 PM</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:34</span>
+          <span class="event-project" style="color:#0ea5e9">CCC FabricIQ</span>
+          <span class="event-detail">Exigo-Tech/CCC-FabricIQ: A repor for Central Coast Council Datalake Review</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:34</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Introducing business skills: Teach agents how your organization works  - Microso</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:34</span>
+          <span class="event-project" style="color:#0ea5e9">CCC FabricIQ</span>
+          <span class="event-detail">CCC FabricIQ — Frontier Thinking</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:35</span>
+          <span class="event-project" style="color:#2563eb">OneDrive / SharePoint</span>
+          <span class="event-detail">Home - OneDrive</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:35</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Tool functions</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:35</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Tool schemas</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:40</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">affinity data analysis at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:41</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">affinity legal at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:41</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">affinity legal at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:41</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">affinity legal at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:41</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">affinity for legal at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:41</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">affinity for legal at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:41</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">affinity for legal at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:43</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Affinity | Dye & Durham</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:45</span>
+          <span class="event-project" style="color:#d97706">D365 CRM</span>
+          <span class="event-detail">Microsoft Dynamics 365</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:46</span>
+          <span class="event-project" style="color:#d97706">D365 CRM</span>
+          <span class="event-detail">Opportunities My Open Opportunities - Dynamics 365</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:46</span>
+          <span class="event-project" style="color:#d97706">D365 CRM</span>
+          <span class="event-detail">Opportunities My Open Opportunities - Dynamics 365</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:46</span>
+          <span class="event-project" style="color:#d97706">D365 CRM</span>
+          <span class="event-detail">Sales Activity Social Dashboard - Dynamics 365</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:46</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Solutions | Dye & Durham</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:54</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:54</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">20:54</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:06</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Exigo-Tech repositories</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:06</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">ExigoTech-Beno (BenO)</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:06</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">ExigoTech-Beno (BenO)</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:06</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Your Repositories</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:06</span>
+          <span class="event-project" style="color:#1f2937">GitHub</span>
+          <span class="event-detail">Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:06</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Exigo-Tech/BC-SmartStartSoW</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:07</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Issues · Exigo-Tech/BC-SmartStartSoW</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:07</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Agents · Exigo-Tech/BC-SmartStartSoW</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:07</span>
+          <span class="event-project" style="color:#8b5cf6">TelstraMSFT FundingAgent</span>
+          <span class="event-detail">TelstraMSFTFundingAgent — Architecture</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:09</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:09</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:09</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">Migrating from Affinity (Dye & Durham) to Business Central | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:20</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:21</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:21</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:21</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">legetti legal at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:21</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">legetti legal at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:21</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Homepage - Ligeti Partners</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:22</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:22</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:22</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:22</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:25</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:25</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:27</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:27</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:27</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:27</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:41</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:47</span>
+          <span class="event-project" style="color:#4c48e3">BC SmartStart SoW</span>
+          <span class="event-detail">BC SmartStart | Exigo Tech</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:54</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Feed | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:54</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Feed | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:54</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Feed | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">21:54</span>
+          <span class="event-project" style="color:#94a3b8">LinkedIn</span>
+          <span class="event-detail">Margaret Tyson | LinkedIn</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Survey | Simplesat</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Survey | Simplesat</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Survey | Simplesat</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Exigo Tech Satisfaction Survey</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:12</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">Exigo Tech Satisfaction Survey</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:15</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">how to manage ghcp tabs better at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:15</span>
+          <span class="event-project" style="color:#d1d5db">Research / Other</span>
+          <span class="event-detail">how to manage ghcp tabs better at DuckDuckGo</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:16</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Perplexity</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:17</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">Perplexity</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:17</span>
+          <span class="event-project" style="color:#06b6d4">AI Research</span>
+          <span class="event-detail">i need a tool to help me with all my github copilot cli sessions</span>
+          <span class="source-badge">🌐 web</span>
+        </div><div class="event">
+          <span class="event-time">22:18</span>
+          <span class="event-project" style="color:#10b981">StrataIQ</span>
+          <span class="event-detail">StrataIQ — The AI-Native Strata Management Opportunity</span>
+          <span class="source-badge">🌐 web</span>
+        </div></div></div></body></html>
