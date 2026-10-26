@@ -1,9 +1,18 @@
 {
+  "name": "frontier-timesheets",
+  "metadata": {
+    "description": "Frontier Timesheets plugin marketplace",
+    "version": "1.0.0"
+  },
+  "owner": {
+    "name": "ExigoTech-Beno"
+  },
   "plugins": [
     {
       "name": "frontier-timesheets",
-      "path": "plugins/frontier-timesheets",
-      "description": "Draft and submit D365 Project Operations time entries powered by your Microsoft 365 activity."
+      "source": "./plugins/frontier-timesheets",
+      "description": "Draft and submit D365 Project Operations time entries powered by your Microsoft 365 activity.",
+      "version": "1.0.0"
     }
   ]
 }

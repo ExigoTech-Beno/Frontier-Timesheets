@@ -1,3 +1,12 @@
+---
+name: work-activity-reporter
+description: >
+  Generate a visual HTML work activity report for any date range (e.g. monthly report) by combining
+  Edge/Chrome browser history, GitHub events, Copilot CLI session data and optionally Microsoft Graph
+  (calendar, Teams, email), then mapping everything to named projects. Use when asked for a work
+  activity report, what I worked on this month, or evidence to support timesheets.
+---
+
 # Skill: Work Activity Reporter
 
 Generate a visual HTML work activity report for any date range by combining browser history,

@@ -1,0 +1,8 @@
+{
+  "name": "frontier-timesheets",
+  "description": "Draft and submit D365 Project Operations time entries powered by your Microsoft 365 activity.",
+  "version": "1.0.0",
+  "author": { "name": "ExigoTech-Beno" },
+  "skills": "skills/",
+  "mcpServers": ".mcp.json"
+}
